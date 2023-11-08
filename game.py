@@ -1,14 +1,14 @@
-""" 
-@author: Anuj Kumar
-@email: cdac.anuj@gmail.com
-@date: 29th-July-2018
-"""
+
 import random
 from time import sleep
-
+import serial
 import pygame
-from pathlib2 import Path
+# from pathlib2 import Path
+from pathlib import Path
+# from serial import Serial
 
+
+# ser = serial.Serial('/dev/ttyACM0', 115200)
 
 class CarRacing:
     def __init__(self):
@@ -55,7 +55,7 @@ class CarRacing:
 
     def racing_window(self):
         self.gameDisplay = pygame.display.set_mode((self.display_width, self.display_height))
-        pygame.display.set_caption('Car Race -- Anuj')
+        pygame.display.set_caption('Car Race -- Moustapha')
         self.run_car()
 
     def run_car(self):
@@ -105,6 +105,10 @@ class CarRacing:
             pygame.display.update()
             self.clock.tick(60)
 
+            # joystick_data = ser.readline().decode('utf-8').strip().split()
+            # if len(joystick_data) == 3:
+            #     joyX, joyY, joyButton = map(int, joystick_data)
+
     def display_message(self, msg):
         font = pygame.font.SysFont("comicsansms", 72, True)
         text = font.render(msg, True, (255, 255, 255))
@@ -141,9 +145,9 @@ class CarRacing:
         font = pygame.font.SysFont("lucidaconsole", 14)
         text = font.render("Thanks & Regards,", True, self.white)
         self.gameDisplay.blit(text, (600, 520))
-        text = font.render("Anuj Kumar", True, self.white)
+        text = font.render("Moustapha Iradukunda", True, self.white)
         self.gameDisplay.blit(text, (600, 540))
-        text = font.render("cdac.anuj@gmail.com", True, self.white)
+        text = font.render("mustaphairadukunda@gmail.com", True, self.white)
         self.gameDisplay.blit(text, (600, 560))
 
 
